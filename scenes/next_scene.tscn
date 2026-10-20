@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://6jh8mhklolxq"]
+
+[ext_resource type="Script" uid="uid://bj7xqi3jqukiq" path="res://scripts/next_scene.gd" id="1_46on6"]
+
+[node name="NextScene" type="Area2D" unique_id=2126544286]
+script = ExtResource("1_46on6")
