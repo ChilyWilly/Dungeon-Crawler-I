@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b5rlcq4kpl32u"]
+
+[ext_resource type="Texture2D" uid="uid://duq6n02ew3q05" path="res://assets/Sprites/Enemies_Sprites/enemies-skeleton1_idle.png" id="1_pbvs3"]
+[ext_resource type="PackedScene" uid="uid://dmdtdl03vvr1r" path="res://scenes/damage_zone.tscn" id="2_txkty"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txkty"]
+atlas = ExtResource("1_pbvs3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivqcw"]
+atlas = ExtResource("1_pbvs3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnirc"]
+atlas = ExtResource("1_pbvs3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pgwy"]
+atlas = ExtResource("1_pbvs3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssl1b"]
+atlas = ExtResource("1_pbvs3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4hcs"]
+atlas = ExtResource("1_pbvs3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5bra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txkty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivqcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnirc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pgwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssl1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4hcs")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5bra"]
+radius = 5.0
+
+[node name="Skeleton" type="Area2D" unique_id=1122649464]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=458594374]
+position = Vector2(2, -13)
+sprite_frames = SubResource("SpriteFrames_w5bra")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="DamageZone" parent="." unique_id=613616521 instance=ExtResource("2_txkty")]
+position = Vector2(2, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone" unique_id=769614240]
+position = Vector2(-3, 8)
+shape = SubResource("CircleShape2D_w5bra")

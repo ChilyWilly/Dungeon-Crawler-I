@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cdoq2e1ckfgtw" path="res://assets/TileSets/Dungeon_Tileset.png" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://nv38knup8t4t" path="res://assets/TileSets/Dungeon_Tileset_1.png" id="3_iywne"]
 [ext_resource type="Texture2D" uid="uid://gqkfougyv8nk" path="res://assets/TileSets/Overworld_Tileset.png" id="4_p57ef"]
-[ext_resource type="PackedScene" uid="uid://6jh8mhklolxq" path="res://scenes/next_scene.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://b5rlcq4kpl32u" path="res://scenes/skeleton.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://cm87qx82dj2bw" path="res://scenes/new_scene.tscn" id="6_p57ef"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("2_lbhrr")
 0:0/0 = 0
 1:0/0 = 0
@@ -153,7 +154,7 @@ texture = ExtResource("2_lbhrr")
 6:0/size_in_atlas = Vector2i(3, 2)
 6:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("3_iywne")
 0:0/0 = 0
 1:0/0 = 0
@@ -256,7 +257,7 @@ texture = ExtResource("3_iywne")
 8:9/0 = 0
 9:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tnpc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("4_p57ef")
 0:0/0 = 0
 1:0/0 = 0
@@ -449,45 +450,51 @@ texture = ExtResource("4_p57ef")
 9:5/size_in_atlas = Vector2i(5, 4)
 9:5/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_djxyh"]
+[sub_resource type="TileSet" id="TileSet_u5sy4"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_u5sy4")
-sources/1 = SubResource("TileSetAtlasSource_gee14")
-sources/2 = SubResource("TileSetAtlasSource_0tnpc")
+sources/0 = SubResource("TileSetAtlasSource_lbhrr")
+sources/1 = SubResource("TileSetAtlasSource_iywne")
+sources/2 = SubResource("TileSetAtlasSource_p57ef")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w5bra"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_w5bra"]
+a = Vector2(16, 10)
 
-[node name="Game" type="Node2D" unique_id=1759170473]
-position = Vector2(-39, -31)
+[node name="Game" type="Node2D" unique_id=799059984]
+position = Vector2(212, 131)
 
-[node name="TileMap" type="TileMap" parent="." unique_id=349216013]
-tile_set = SubResource("TileSet_djxyh")
+[node name="TileMap" type="TileMap" parent="." unique_id=1510797369]
+tile_set = SubResource("TileSet_u5sy4")
 format = 2
 
-[node name="Base" type="TileMapLayer" parent="TileMap" unique_id=21820735]
+[node name="Base" type="TileMapLayer" parent="TileMap" unique_id=1518175787]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAABAAAAAgAQAAoAAAABAAEAAgAQAAsAAAAAAAAAAgAQAAoAAAD//wAAAgAPAAoAAAD//wEAAgAPAAsAAAAAAAEAAgAQAAsAAAACAAAAAgAQAAoAAAADAAAAAgAQAAoAAAAEAAAAAgAQAAoAAAAFAAAAAgARAAoAAAAFAAEAAgARAAsAAAACAAEAAgAQAAsAAAADAAEAAgAQAAsAAAAEAAEAAgAQAAsAAAD//wIAAgAPAAsAAAD//wMAAgAPAAsAAAD//wQAAgAPAAsAAAD//wUAAgAPAAwAAAAAAAUAAgAQAAwAAAACAAUAAgAQAAwAAAADAAUAAgAQAAwAAAAEAAUAAgAQAAwAAAAFAAUAAgARAAwAAAAFAAQAAgARAAsAAAAFAAMAAgARAAsAAAAFAAIAAgARAAsAAAAAAAIAAgAQAAsAAAAAAAMAAgAQAAsAAAAAAAQAAgAQAAsAAAABAAIAAgAQAAsAAAABAAMAAgAQAAsAAAABAAQAAgAQAAsAAAACAAIAAgAQAAsAAAACAAMAAgAQAAsAAAACAAQAAgAQAAsAAAADAAIAAgAQAAsAAAADAAMAAgAQAAsAAAADAAQAAgAQAAsAAAAEAAIAAgAQAAsAAAAEAAMAAgAQAAsAAAAEAAQAAgAQAAsAAAABAAUAAgAQAAwAAAA=")
-tile_set = SubResource("TileSet_djxyh")
+tile_set = SubResource("TileSet_u5sy4")
 
-[node name="Mid" type="TileMapLayer" parent="TileMap" unique_id=504422247]
+[node name="Mid" type="TileMapLayer" parent="TileMap" unique_id=2119874827]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD///7/AgAOAAUAAAD/////AgAOAAYAAAD//wAAAgAOAAcAAAAAAP7/AgAPAAUAAAAAAP//AgAPAAYAAAAAAAAAAgAPAAcAAAABAP7/AgAQAAUAAAABAP//AgAQAAYAAAABAAAAAgAQAAcAAAACAP7/AgAQAAUAAAADAP7/AgAQAAUAAAAEAP7/AgAQAAUAAAAFAP7/AgARAAUAAAAFAP//AgARAAYAAAAFAAAAAgARAAcAAAACAAAAAgAPAAcAAAADAAAAAgAPAAcAAAAEAAAAAgAPAAcAAAACAP//AgAPAAYAAAADAP//AgAPAAYAAAAEAP//AgAPAAYAAAAEAAEAAgAMAAoAAAAFAAEAAgANAAoAAAD//wMAAgALAAkAAAAAAAMAAgAKAAoAAAA=")
-tile_set = SubResource("TileSet_djxyh")
+tile_set = SubResource("TileSet_u5sy4")
 
-[node name="Overlay" type="TileMapLayer" parent="TileMap" unique_id=1912279615]
+[node name="Overlay" type="TileMapLayer" parent="TileMap" unique_id=1170285346]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAACAP//AgAKAAwAAAD//wQAAgAOAAgAAAD//wUAAgAOAAkAAAD//wMAAgAOAAgAAAD//wIAAgAOAAgAAAD//wEAAgAOAAgAAAADAAUAAgAPAAkAAAAEAAUAAgAPAAkAAAAFAAQAAgARAAgAAAAFAAUAAgARAAkAAAAFAAMAAgARAAgAAAAFAAIAAgARAAgAAAAFAAEAAgARAAgAAAAAAAUAAgAPAAkAAAABAAUAAgAPAAkAAAA=")
-tile_set = SubResource("TileSet_djxyh")
+tile_set = SubResource("TileSet_u5sy4")
 
-[node name="Player" parent="." unique_id=842985484 instance=ExtResource("1_uwrxv")]
-position = Vector2(39, 49)
+[node name="Player" parent="." unique_id=2071279333 instance=ExtResource("1_uwrxv")]
+z_index = 1
+position = Vector2(38, 55)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1201545197]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1237827379]
 zoom = Vector2(3, 3)
+limit_enabled = false
 position_smoothing_enabled = true
 
-[node name="NextScene" parent="." unique_id=2126544286 instance=ExtResource("5_iywne")]
+[node name="NewScene" parent="." unique_id=547614319 instance=ExtResource("6_p57ef")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NextScene" unique_id=928346401]
-position = Vector2(39, 94)
-shape = SubResource("WorldBoundaryShape2D_w5bra")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NewScene" unique_id=1569004805]
+position = Vector2(32, 83)
+shape = SubResource("SegmentShape2D_w5bra")
+
+[node name="Skeleton" parent="." unique_id=1122649464 instance=ExtResource("5_iywne")]
+position = Vector2(39, 137)
