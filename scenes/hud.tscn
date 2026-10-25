@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cyyqy622cmtkt"]
+
+[ext_resource type="Texture2D" uid="uid://c6876a4golv8s" path="res://assets/HUD/health_bar_hud.png" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://ddk47g5hr4n82" path="res://scripts/health_bar.gd" id="2_oo0fn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djxyh"]
+bg_color = Color(0.9437082, 0.07974199, 0, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=1566151347]
+
+[node name="HealthOverlay" type="Sprite2D" parent="." unique_id=798639422]
+position = Vector2(94, 33)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_ahhtf")
+
+[node name="HealthBar" type="ProgressBar" parent="HealthOverlay" unique_id=851556933]
+z_index = -1
+offset_left = -18.4
+offset_top = -5.6
+offset_right = 26.399996
+offset_bottom = 5.1999993
+theme_override_styles/fill = SubResource("StyleBoxFlat_djxyh")
+value = 100.0
+show_percentage = false
+script = ExtResource("2_oo0fn")

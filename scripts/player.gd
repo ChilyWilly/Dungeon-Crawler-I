@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 var attack = false
-var attempts = 0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
@@ -47,18 +46,25 @@ func _process(_delta: float) -> void:
 		if attack == true:
 			if Input.is_action_pressed("player_atk") and animated_sprite.flip_h == false and horizontal == 1:
 				animated_sprite.play("side_atk")
+				animated_sprite.offset.x += 8
 			elif Input.is_action_pressed("player_atk") and animated_sprite.flip_h == true and horizontal == -1:
 				animated_sprite.play("side_atk")
+				animated_sprite.offset.x += -8
 			elif Input.is_action_pressed("player_atk") and horizontal + vertical == 0:
 				animated_sprite.play("down_atk")
+				animated_sprite.offset.y += 7
 			elif Input.is_action_pressed("player_atk") and vertical == -1:
 				animated_sprite.play("up_atk")
+				animated_sprite.offset.y += -9
 			elif Input.is_action_pressed("player_atk") and vertical == 1:
 				animated_sprite.play("down_atk")
+				animated_sprite.offset.y += 7
 			timer.start()
 
 	move_and_slide()
 
 
 func _on_timer_timeout() -> void:
+	animated_sprite.offset.x = 0
+	animated_sprite.offset.y = 0
 	attack = false

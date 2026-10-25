@@ -1,13 +1,14 @@
 extends Area2D
 
-var health = 100
+var max_health = 100
 
 
 func _on_body_entered(_body: Node2D) -> void:
-	health -= 20
-	if health <= 0:
-		health = 0
+	Global.health -= 20
+	if Global.health <= 0:
+		Global.health = 0
 		print("You Died")
+		Global.health = 100
 		get_tree().reload_current_scene()
 	else:
-		print(health)
+		print(Global.health)

@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://cm87qx82dj2bw"]
 
-[ext_resource type="Script" uid="uid://c0qkp4p7r2oq2" path="res://scripts/new_scene.gd" id="1_iw84y"]
-
 [node name="NewScene" type="Area2D" unique_id=547614319]
-script = ExtResource("1_iw84y")
+collision_mask = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

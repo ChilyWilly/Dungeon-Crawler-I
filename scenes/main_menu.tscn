@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bfl84fpiyrqn4"]
+
+[node name="MainMenu" type="Node2D" unique_id=1575276066]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=58569203]
+zoom = Vector2(4.3, 4.3)
+limit_left = 0
+limit_top = 0
+limit_right = 270
+limit_bottom = 150

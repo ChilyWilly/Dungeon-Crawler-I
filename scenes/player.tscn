@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://csnojmfjv4dvh" path="res://assets/Sprites/Char_Sprites/char_run_up_anim_strip_6.png" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://ccbvuo7754oap" path="res://assets/Sprites/Char_Sprites/char_attack_right_anim_strip_6.png" id="7_fjrip"]
 [ext_resource type="Texture2D" uid="uid://pekq854w3ytt" path="res://assets/Sprites/Char_Sprites/char_attack_up_anim_strip_6.png" id="8_smehm"]
+[ext_resource type="PackedScene" uid="uid://cyyqy622cmtkt" path="res://scenes/hud.tscn" id="9_ur7pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
 atlas = ExtResource("2_tuyoq")
@@ -345,6 +346,7 @@ animations = [{
 radius = 4.0
 
 [node name="Player" type="CharacterBody2D" unique_id=2071279333]
+collision_layer = 2
 script = ExtResource("1_qlg0r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1539145577]
@@ -353,12 +355,19 @@ sprite_frames = SubResource("SpriteFrames_lbhrr")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1727464071]
+[node name="MapCollision" type="CollisionShape2D" parent="." unique_id=1727464071]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_w5bra")
+debug_color = Color(0.5392185, 0.5482717, 0, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=1728352029]
 wait_time = 0.35
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=139472499]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="HUD" parent="." unique_id=1566151347 instance=ExtResource("9_ur7pv")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
