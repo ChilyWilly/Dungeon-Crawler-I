@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cr4wr4fqylgud" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://x0sw04icmeoo" path="res://assets/Sprites/Char_Sprites/char_attack_down_anim_strip_6.png" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://bk2k6l2lj23u7" path="res://assets/Sprites/Char_Sprites/char_run_down_anim_strip_6.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bepc2wwx0ojvd" path="res://assets/Sprites/Char_Sprites/char_hit_down_anim_strip_3.png" id="3_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bpn7mji50nhh4" path="res://assets/Sprites/Char_Sprites/char_run_right_anim_strip_6.png" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://csnojmfjv4dvh" path="res://assets/Sprites/Char_Sprites/char_run_up_anim_strip_6.png" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://ccbvuo7754oap" path="res://assets/Sprites/Char_Sprites/char_attack_right_anim_strip_6.png" id="7_fjrip"]
@@ -33,6 +34,18 @@ region = Rect2(192, 0, 48, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnwbv"]
 atlas = ExtResource("2_tuyoq")
 region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhpqf"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5jhy"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_holxr"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -205,6 +218,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hhpqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5jhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_holxr")
+}],
+"loop": 0,
+"name": &"hit_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_g2els")
 }, {
 "duration": 1.0,
@@ -355,11 +382,6 @@ sprite_frames = SubResource("SpriteFrames_lbhrr")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="MapCollision" type="CollisionShape2D" parent="." unique_id=1727464071]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_w5bra")
-debug_color = Color(0.5392185, 0.5482717, 0, 0.41960785)
-
 [node name="Timer" type="Timer" parent="." unique_id=1728352029]
 wait_time = 0.35
 one_shot = true
@@ -368,6 +390,11 @@ one_shot = true
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
-[node name="HUD" parent="." unique_id=1566151347 instance=ExtResource("9_ur7pv")]
+[node name="HUD" parent="." unique_id=1445099921 instance=ExtResource("9_ur7pv")]
+
+[node name="MapCollision" type="CollisionShape2D" parent="." unique_id=1727464071]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_w5bra")
+debug_color = Color(0.5392185, 0.5482717, 0, 0.41960785)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

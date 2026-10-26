@@ -1,25 +1,50 @@
 [gd_scene format=3 uid="uid://cyyqy622cmtkt"]
 
 [ext_resource type="Texture2D" uid="uid://c6876a4golv8s" path="res://assets/HUD/health_bar_hud.png" id="1_ahhtf"]
-[ext_resource type="Script" uid="uid://ddk47g5hr4n82" path="res://scripts/health_bar.gd" id="2_oo0fn"]
+[ext_resource type="Script" uid="uid://ddk47g5hr4n82" path="res://scripts/health_bar.gd" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://s7sn1yhl3gta" path="res://assets/HUD/item_box_hud.png" id="3_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://da8vmanrbp20m" path="res://assets/Sprites/items and trap_animation/flasks/flasks_1_3.png" id="4_6fi6k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5bra"]
+bg_color = Color(0.019790495, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djxyh"]
-bg_color = Color(0.9437082, 0.07974199, 0, 1)
+bg_color = Color(0.7019608, 0, 0, 1)
 
-[node name="HUD" type="CanvasLayer" unique_id=1566151347]
+[node name="HUD" type="CanvasLayer" unique_id=1445099921]
 
-[node name="HealthOverlay" type="Sprite2D" parent="." unique_id=798639422]
-position = Vector2(94, 33)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("1_ahhtf")
-
-[node name="HealthBar" type="ProgressBar" parent="HealthOverlay" unique_id=851556933]
-z_index = -1
-offset_left = -18.4
-offset_top = -5.6
-offset_right = 26.399996
-offset_bottom = 5.1999993
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=687396909]
+offset_left = 529.0
+offset_top = 529.0
+offset_right = 651.0
+offset_bottom = 556.0
+theme_override_styles/background = SubResource("StyleBoxFlat_w5bra")
 theme_override_styles/fill = SubResource("StyleBoxFlat_djxyh")
 value = 100.0
 show_percentage = false
-script = ExtResource("2_oo0fn")
+script = ExtResource("1_oo0fn")
+
+[node name="Health" type="Sprite2D" parent="." unique_id=197017776]
+position = Vector2(576, 544)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ahhtf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=833696557]
+position = Vector2(224, 544)
+scale = Vector2(3, 3)
+texture = ExtResource("3_5ysmq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1975836539]
+position = Vector2(288, 544)
+scale = Vector2(3, 3)
+texture = ExtResource("3_5ysmq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1983342719]
+position = Vector2(352, 544)
+scale = Vector2(3, 3)
+texture = ExtResource("3_5ysmq")
+
+[node name="Heal" type="Sprite2D" parent="." unique_id=1843896877]
+position = Vector2(736, 532.00006)
+scale = Vector2(5, 5)
+texture = ExtResource("4_6fi6k")
